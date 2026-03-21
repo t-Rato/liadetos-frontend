@@ -78,7 +78,15 @@ export default function Formulario() {
 						onClick={() => setSelecionado(pessoa.id)}
 						className="flex flex-col items-center cursor-pointer justify-center"
 					>
-						<div className={`rounded-full bg-black transition-all duration-300 ${selecionado === pessoa.id ? 'w-16 h-16 lg:w-32 lg:h-32 opacity-100 ring-4 ring-offset-2 ring-black mb-3' : 'w-12 h-12 lg:w-24 lg:h-24 opacity-40 hover:opacity-70 mb-2'}`} />
+						{pessoa.dadosUsuario?.imagemUrl ? (
+							<img
+								src={`${process.env.REACT_APP_API_URL}${pessoa.dadosUsuario.imagemUrl}`}
+								alt={pessoa.dadosUsuario?.alcunha || pessoa.nome}
+								className={`rounded-full object-cover object-center transition-all duration-300 ${selecionado === pessoa.id ? 'w-16 h-16 lg:w-32 lg:h-32 opacity-100 ring-4 ring-offset-2 ring-black mb-3' : 'w-12 h-12 lg:w-24 lg:h-24 opacity-40 hover:opacity-70 mb-2'}`}
+							/>
+						) : (
+							<div className={`rounded-full bg-black transition-all duration-300 ${selecionado === pessoa.id ? 'w-16 h-16 lg:w-32 lg:h-32 opacity-100 ring-4 ring-offset-2 ring-black mb-3' : 'w-12 h-12 lg:w-24 lg:h-24 opacity-40 hover:opacity-70 mb-2'}`} />
+						)}
 						<p className={`font-semibold transition-all duration-300 text-center text-xs lg:text-base ${selecionado === pessoa.id ? 'text-black' : 'text-gray-400'}`}>
 							{pessoa.dadosUsuario?.alcunha || pessoa.nome}
 						</p>
