@@ -69,7 +69,7 @@ export default function Formulario() {
 
 	return (
 		<div className="flex flex-col justify-center items-center mt-10 gap-10 lg:gap-16 px-4 lg:px-0">
-			<p className="text-2xl lg:text-[40px] text-black font-semibold text-center">QUEM FOI O ACÉFALO DESTA VEZ?</p>
+			<p className="text-2xl lg:text-[40px] text-black font-semibold text-center">QUEM É QUE FOI O ACÉFALO DESTA VEZ?</p>
 
 			<div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-24 items-center w-full">
 				{pessoas.map((pessoa) => (
