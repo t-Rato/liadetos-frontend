@@ -19,7 +19,7 @@ export default function Ranking() {
 
 				const ordenado = Array.isArray(data)
 					? data
-						.filter((u) => u.isOther !== true)
+						.filter((u) => u.dadosUsuario?.isOther !== true)
 						.sort(
 							(a, b) =>
 							(b.dadosUsuario?.aldrabicesDitas || 0) -

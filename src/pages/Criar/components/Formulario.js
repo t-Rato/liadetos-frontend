@@ -18,7 +18,7 @@ export default function Formulario() {
 				const data = await res.json()
 				setPessoas(
 					Array.isArray(data)
-						? data.filter((p) => p.isOther !== true)
+						? data.filter((p) => p.dadosUsuario?.isOther !== true)
 						: []
 				)
 			} catch {

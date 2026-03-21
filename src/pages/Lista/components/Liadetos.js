@@ -28,7 +28,7 @@ export default function Liadetos() {
 					{ id: "Todos", alcunha: "Todos" },
 					...(Array.isArray(usuariosData)
 						? usuariosData
-							.filter((u) => u.isOther !== true)
+							.filter((u) => u.dadosUsuario?.isOther !== true)
 							.map((u) => ({
 								id: u.id,
 								alcunha: u.dadosUsuario?.alcunha || u.nome
