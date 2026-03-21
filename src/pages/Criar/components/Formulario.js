@@ -45,7 +45,7 @@ export default function Formulario() {
 		setLoading(true)
 
 		try {
-			const autorId = selecionado === 'outro' ? 8 : selecionado
+			const autorId = selecionado === 'outro' ? 7 : selecionado
 			console.log('autorId a enviar:', autorId)
 
 			const res = await apiFetch("/liadetos", {
