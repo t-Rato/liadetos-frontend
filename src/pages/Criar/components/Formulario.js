@@ -76,7 +76,7 @@ export default function Formulario() {
 					<div
 						key={pessoa.id}
 						onClick={() => setSelecionado(pessoa.id)}
-						className="flex flex-col items-center cursor-pointer justify-center w-16 lg:w-36 h-24 lg:h-48"
+						className="flex flex-col items-center cursor-pointer justify-start w-16 lg:w-40 h-24 lg:h-48"
 					>
 						{pessoa.dadosUsuario?.imagemUrl ? (
 							<img
