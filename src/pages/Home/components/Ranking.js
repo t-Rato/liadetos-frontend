@@ -110,7 +110,7 @@ export default function Ranking() {
 								)}
 								<div className={`${u.gradiente} w-full lg:w-[240px] ${u.altura} flex flex-col text-center justify-start shadow-lg pt-4`}>
 									<p className={`${u.cor} text-xl lg:text-2xl font-bold`}>{u.posicao}</p>
-									<p className={`${u.cor} text-sm lg:text-xl font-semibold`}>
+									<p className={`${u.cor} text-sm lg:text-xl font-semibold break-words px-2`}>
 										{u.dadosUsuario?.alcunha || u.nome}
 									</p>
 									<p className={`${u.cor} text-xs lg:text-base font-semibold mt-1`}>

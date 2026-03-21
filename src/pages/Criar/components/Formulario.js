@@ -71,12 +71,12 @@ export default function Formulario() {
 		<div className="flex flex-col justify-center items-center mt-10 gap-10 lg:gap-16 px-4 lg:px-0">
 			<p className="text-2xl lg:text-[40px] text-black font-semibold text-center">QUEM É QUE FOI O ACÉFALO DESTA VEZ?</p>
 
-			<div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-24 items-center w-full">
+			<div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-24 items-end w-full">
 				{pessoas.map((pessoa) => (
 					<div
 						key={pessoa.id}
 						onClick={() => setSelecionado(pessoa.id)}
-						className="flex flex-col items-center cursor-pointer justify-center"
+						className="flex flex-col items-center cursor-pointer justify-end w-16 lg:w-36"
 					>
 						{pessoa.dadosUsuario?.imagemUrl ? (
 							<img
