@@ -27,11 +27,12 @@ export default function Stats() {
 					: null
 
 				if (eu) {
-					const ranking = [...usuarios]
-						.sort((a, b) => (b.dadosUsuario?.aldrabicesDitas || 0) - (a.dadosUsuario?.aldrabicesDitas || 0))
-						.findIndex((u) => u.id === eu.id) + 1
-					setUsuario({ ...eu, ranking })
-				}
+				const ranking = [...usuarios]
+					.filter((u) => !u.dadosUsuario?.isOther)
+					.sort((a, b) => (b.dadosUsuario?.aldrabicesDitas || 0) - (a.dadosUsuario?.aldrabicesDitas || 0))
+					.findIndex((u) => u.id === eu.id) + 1
+				setUsuario({ ...eu, ranking })
+			}
 
 				const minhasAldrabices = Array.isArray(liadetos)
 					? liadetos.filter((l) => l.autorId === eu?.id)

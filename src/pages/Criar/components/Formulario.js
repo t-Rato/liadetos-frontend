@@ -16,7 +16,7 @@ export default function Formulario() {
 			try {
 				const res = await apiFetch("/usuarios")
 				const data = await res.json()
-				setPessoas(Array.isArray(data) ? data : [])
+				setPessoas(Array.isArray(data) ? data.filter((p) => !p.dadosUsuario?.isOther) : [])
 			} catch {
 				setErro("Erro ao carregar utilizadores.")
 			}
@@ -46,7 +46,6 @@ export default function Formulario() {
 
 		try {
 			const autorId = selecionado === 'outro' ? 7 : selecionado
-			console.log('autorId a enviar:', autorId)
 
 			const res = await apiFetch("/liadetos", {
 				method: "POST",

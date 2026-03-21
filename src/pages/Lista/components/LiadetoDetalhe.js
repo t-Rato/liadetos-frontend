@@ -18,7 +18,7 @@ export default function LiadetoDetalhe({ liadeto, onClose }) {
 					</button>
 				</div>
 				<div className="flex flex-col gap-2 text-gray-600 text-sm lg:text-base">
-					<p><span className="font-semibold text-black">Autor:</span> {liadeto.autor?.dadosUsuario?.alcunha || "Outro"}</p>
+					<p><span className="font-semibold text-black">Autor:</span> {liadeto.autor?.dadosUsuario?.isOther ? "Outro indivíduo" : liadeto.autor?.dadosUsuario?.alcunha || "Outro indivíduo"}</p>
 					<p><span className="font-semibold text-black">Criador:</span> {liadeto.criador?.dadosUsuario?.alcunha || liadeto.criador?.nome}</p>
 					<p><span className="font-semibold text-black">Data:</span> {new Date(liadeto.criadoEm).toLocaleDateString('pt-PT')}</p>
 				</div>
