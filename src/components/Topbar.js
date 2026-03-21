@@ -9,7 +9,7 @@ export default function Topbar() {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			setScrolled(window.scrollY > 100)
+			setScrolled(window.scrollY > 20)
 		}
 		window.addEventListener("scroll", handleScroll)
 		return () => window.removeEventListener("scroll", handleScroll)

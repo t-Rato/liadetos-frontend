@@ -26,10 +26,10 @@ export default function Liadetos() {
 				setLiadetos(Array.isArray(liadetosData) ? liadetosData : [])
 				setIndividuos([
 					{ id: "Todos", alcunha: "Todos" },
-					...(Array.isArray(usuariosData) 
+					...(Array.isArray(usuariosData)
 						? usuariosData
 							.filter((u) => !u.dadosUsuario?.isOther)
-							.map((u) => ({ id: u.id, alcunha: u.dadosUsuario?.alcunha || u.nome })) 
+							.map((u) => ({ id: u.id, alcunha: u.dadosUsuario?.alcunha || u.nome }))
 						: []),
 					{ id: "Outros", alcunha: "Outros" }
 				])
@@ -44,9 +44,9 @@ export default function Liadetos() {
 
 	const filtrados = liadetos.filter((l) => {
 		const matchPesquisa = l.nome.toLowerCase().includes(pesquisa.toLowerCase())
-		const matchIndividuo = 
-    		filtroIndividuo === "Todos" || 
-    		(filtroIndividuo === "Outros" ? l.autorId === 9 : l.autorId === filtroIndividuo)
+		const matchIndividuo =
+			filtroIndividuo === "Todos" ||
+			(filtroIndividuo === "Outros" ? l.autorId === 9 : l.autorId === Number(filtroIndividuo))
 		return matchPesquisa && matchIndividuo
 	})
 
@@ -100,12 +100,12 @@ export default function Liadetos() {
 
 			<div className="w-full flex flex-col gap-3">
 
-				{/* Cabeçalho — esconde Criador no mobile */}
-				<div className="grid grid-cols-3 lg:grid-cols-4 px-4 lg:px-6 text-gray-400 font-semibold text-sm uppercase">
+				{/* Cabeçalho */}
+				<div className="grid grid-cols-2 lg:grid-cols-4 px-4 lg:px-6 text-gray-400 font-semibold text-sm uppercase">
 					<p>Nome</p>
 					<p>Autor</p>
 					<p className="hidden lg:block">Criador</p>
-					<p>Data</p>
+					<p className="hidden lg:block">Data</p>
 				</div>
 
 				{loading ? (
@@ -117,14 +117,14 @@ export default function Liadetos() {
 						<div
 							key={l.id}
 							onClick={() => setSelecionado(l)}
-							className="grid grid-cols-3 lg:grid-cols-4 px-4 lg:px-6 py-4 bg-stone-50 rounded-2xl border-2 border-transparent hover:border-black transition-all duration-200 cursor-pointer shadow-sm items-center"
+							className="grid grid-cols-2 lg:grid-cols-4 px-4 lg:px-6 py-4 bg-stone-50 rounded-2xl border-2 border-transparent hover:border-black transition-all duration-200 cursor-pointer shadow-sm items-center"
 						>
 							<p className="font-semibold text-black text-sm lg:text-base truncate">{l.nome}</p>
 							<p className="text-gray-600 text-sm lg:text-base truncate">
 								{l.autor?.dadosUsuario?.isOther ? "Outro indivíduo" : l.autor?.dadosUsuario?.alcunha || "Outro indivíduo"}
 							</p>
 							<p className="text-gray-600 text-sm lg:text-base truncate hidden lg:block">{l.criador?.dadosUsuario?.alcunha || l.criador?.nome}</p>
-							<p className="text-gray-400 text-xs lg:text-sm">{new Date(l.criadoEm).toLocaleDateString('pt-PT')}</p>
+							<p className="text-gray-400 text-xs lg:text-sm hidden lg:block">{new Date(l.criadoEm).toLocaleDateString('pt-PT')}</p>
 						</div>
 					))
 				)}
