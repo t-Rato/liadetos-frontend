@@ -31,7 +31,7 @@ export default function Login() {
 			localStorage.setItem("token", data.token)
 			localStorage.setItem("usuario", JSON.stringify({ nome: usuario }))
 			if (data.primeiroLogin) {
-				navigate("/alterar-senha", { state: { nome: usuario } })
+				navigate("/alterarsenha", { state: { nome: usuario } })
 				return
 			}
 			navigate("/")
