@@ -26,7 +26,14 @@ export default function Liadetos() {
 				setLiadetos(Array.isArray(liadetosData) ? liadetosData : [])
 				setIndividuos([
 					{ id: "Todos", alcunha: "Todos" },
-					...(Array.isArray(usuariosData) ? usuariosData.map((u) => ({ id: u.id, alcunha: u.dadosUsuario?.alcunha || u.nome })) : []),
+					...(Array.isArray(usuariosData)
+						? usuariosData
+							.filter((u) => u.isOther !== true)
+							.map((u) => ({
+								id: u.id,
+								alcunha: u.dadosUsuario?.alcunha || u.nome
+							}))
+						: []),
 					{ id: "Outros", alcunha: "Outros" }
 				])
 			} catch {

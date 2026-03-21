@@ -16,7 +16,11 @@ export default function Formulario() {
 			try {
 				const res = await apiFetch("/usuarios")
 				const data = await res.json()
-				setPessoas(Array.isArray(data) ? data : [])
+				setPessoas(
+					Array.isArray(data)
+						? data.filter((p) => p.isOther !== true)
+						: []
+				)
 			} catch {
 				setErro("Erro ao carregar utilizadores.")
 			}

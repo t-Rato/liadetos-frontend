@@ -18,7 +18,13 @@ export default function Ranking() {
 				const liadetos = await liadetosRes.json()
 
 				const ordenado = Array.isArray(data)
-					? [...data].sort((a, b) => (b.dadosUsuario?.aldrabicesDitas || 0) - (a.dadosUsuario?.aldrabicesDitas || 0))
+					? data
+						.filter((u) => u.isOther !== true)
+						.sort(
+							(a, b) =>
+							(b.dadosUsuario?.aldrabicesDitas || 0) -
+							(a.dadosUsuario?.aldrabicesDitas || 0)
+						)
 					: []
 
 				setRanking(ordenado)
