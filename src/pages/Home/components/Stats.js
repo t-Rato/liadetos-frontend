@@ -8,7 +8,7 @@ export default function Stats() {
 	const [loading, setLoading] = useState(true)
 
 	const statsCard = "col-span-1 flex flex-col justify-start items-center"
-	const titleStatsCard = "text-sm lg:text-3xl font-semibold text-black text-center"
+	const titleStatsCard = "text-sm lg:text-3xl font-semibold text-black text-center h-10 lg:h-auto flex items-center justify-center"
 	const statsStatsCard = "text-[60px] lg:text-[180px] text-black leading-none"
 
 	useEffect(() => {
