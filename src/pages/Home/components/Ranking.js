@@ -50,7 +50,6 @@ export default function Ranking() {
 				<p className="text-2xl lg:text-4xl font-semibold text-center">Ranking - Mais Aldrabices Ditas</p>
 				<Trophy className="text-amber-300" size={40} />
 			</div>
-
 			<div className="flex flex-col lg:grid lg:grid-cols-3 lg:px-20 gap-8">
 				{/* Tabela */}
 				<div className="flex flex-col lg:col-span-1 justify-start items-start gap-2">
@@ -61,8 +60,9 @@ export default function Ranking() {
 						) : (
 							<>
 								{ranking.map((u, i) => (
-									<div key={u.id} className={`${cores[i] || "bg-slate-200"} text-black p-3 px-5 rounded-3xl w-full`}>
-										{i + 1}º - {u.dadosUsuario?.alcunha || u.nome}
+									<div key={u.id} className={`${cores[i] || "bg-slate-200"} text-black p-3 px-5 rounded-3xl w-full flex flex-row justify-between items-center`}>
+										<span>{i + 1}º - {u.dadosUsuario?.alcunha || u.nome}</span>
+										<span className="font-bold">{u.dadosUsuario?.aldrabicesDitas ?? 0}</span>
 									</div>
 								))}
 								<div className="bg-slate-50 text-gray-500 p-3 px-5 rounded-3xl w-full">
@@ -93,6 +93,9 @@ export default function Ranking() {
 									<p className={`${u.cor} text-xl lg:text-2xl font-bold`}>{u.posicao}</p>
 									<p className={`${u.cor} text-sm lg:text-xl font-semibold`}>
 										{u.dadosUsuario?.alcunha || u.nome}
+									</p>
+									<p className={`${u.cor} text-xs lg:text-base font-semibold mt-1`}>
+										{u.dadosUsuario?.aldrabicesDitas ?? 0} aldrabices
 									</p>
 								</div>
 							</div>

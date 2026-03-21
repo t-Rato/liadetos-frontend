@@ -26,7 +26,8 @@ export default function Liadetos() {
 				setLiadetos(Array.isArray(liadetosData) ? liadetosData : [])
 				setIndividuos([
 					{ id: "Todos", alcunha: "Todos" },
-					...(Array.isArray(usuariosData) ? usuariosData.map((u) => ({ id: u.id, alcunha: u.dadosUsuario?.alcunha || u.nome })) : [])
+					...(Array.isArray(usuariosData) ? usuariosData.map((u) => ({ id: u.id, alcunha: u.dadosUsuario?.alcunha || u.nome })) : []),
+					{ id: "Outros", alcunha: "Outros" }
 				])
 			} catch {
 				console.error("Erro ao carregar dados.")
@@ -39,7 +40,9 @@ export default function Liadetos() {
 
 	const filtrados = liadetos.filter((l) => {
 		const matchPesquisa = l.nome.toLowerCase().includes(pesquisa.toLowerCase())
-		const matchIndividuo = filtroIndividuo === "Todos" || l.autorId === filtroIndividuo
+		const matchIndividuo = 
+			filtroIndividuo === "Todos" || 
+			(filtroIndividuo === "Outros" ? l.autorId === null : l.autorId === filtroIndividuo)
 		return matchPesquisa && matchIndividuo
 	})
 
