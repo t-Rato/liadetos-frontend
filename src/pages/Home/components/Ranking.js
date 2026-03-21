@@ -4,17 +4,25 @@ import { apiFetch } from "../../../utils/api"
 
 export default function Ranking() {
 	const [ranking, setRanking] = useState([])
+	const [outrosCount, setOutrosCount] = useState(0)
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
 		const fetchRanking = async () => {
 			try {
-				const res = await apiFetch("/usuarios")
-				const data = await res.json()
+				const [usuariosRes, liadetosRes] = await Promise.all([
+					apiFetch("/usuarios"),
+					apiFetch("/liadetos")
+				])
+				const data = await usuariosRes.json()
+				const liadetos = await liadetosRes.json()
+
 				const ordenado = Array.isArray(data)
 					? [...data].sort((a, b) => (b.dadosUsuario?.aldrabicesDitas || 0) - (a.dadosUsuario?.aldrabicesDitas || 0))
 					: []
+
 				setRanking(ordenado)
+				setOutrosCount(Array.isArray(liadetos) ? liadetos.filter((l) => l.autorId === null).length : 0)
 			} catch {
 				console.error("Erro ao carregar ranking.")
 			} finally {
@@ -40,7 +48,7 @@ export default function Ranking() {
 	const podioVisual = [
 		segundo ? { ...segundo, posicao: "2º", altura: "h-[175px]", gradiente: "bg-gradient-to-t from-gray-200 to-gray-400", cor: "text-gray-700" } : null,
 		primeiro ? { ...primeiro, posicao: "1º", altura: "h-[250px]", gradiente: "bg-gradient-to-t from-yellow-200 to-yellow-400", cor: "text-yellow-700" } : null,
-		terceiro ? { ...terceiro, posicao: "3º", altura: "h-[100px]", gradiente: "bg-gradient-to-t from-amber-300 to-amber-500", cor: "text-amber-700" } : null,
+		terceiro ? { ...terceiro, posicao: "3º", altura: "h-[125px]", gradiente: "bg-gradient-to-t from-amber-300 to-amber-500", cor: "text-amber-700" } : null,
 	].filter(Boolean)
 
 	return (
@@ -65,8 +73,9 @@ export default function Ranking() {
 										<span className="font-bold">{u.dadosUsuario?.aldrabicesDitas ?? 0}</span>
 									</div>
 								))}
-								<div className="bg-slate-50 text-gray-500 p-3 px-5 rounded-3xl w-full">
-									Outros
+								<div className="bg-slate-50 text-gray-500 p-3 px-5 rounded-3xl w-full flex flex-row justify-between items-center">
+									<span>Outros indivíduos</span>
+									<span className="font-bold">{outrosCount}</span>
 								</div>
 							</>
 						)}
@@ -95,7 +104,7 @@ export default function Ranking() {
 										{u.dadosUsuario?.alcunha || u.nome}
 									</p>
 									<p className={`${u.cor} text-xs lg:text-base font-semibold mt-1`}>
-										{u.dadosUsuario?.aldrabicesDitas ?? 0} aldrabices
+										{u.dadosUsuario?.aldrabicesDitas ?? 0}
 									</p>
 								</div>
 							</div>
