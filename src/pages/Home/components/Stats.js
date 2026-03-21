@@ -23,7 +23,7 @@ export default function Stats() {
 				const liadetos = await liadetosRes.json()
 
 				const eu = Array.isArray(usuarios)
-					? usuarios.find((u) => u.nome === usuarioGuardado?.nome)
+					? usuarios.filter((u) => !u.dadosUsuario?.isOther).find((u) => u.nome === usuarioGuardado?.nome)
 					: null
 
 				if (eu) {
