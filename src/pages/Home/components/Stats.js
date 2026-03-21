@@ -61,6 +61,7 @@ export default function Stats() {
 					{usuario?.dadosUsuario?.imagemUrl ? (
 						<img
 							src={`${process.env.REACT_APP_API_URL}${usuario.dadosUsuario.imagemUrl}`}
+							alt={usuario.dadosUsuario?.alcunha || usuario.nome}
 							className="h-40 w-40 lg:h-80 lg:w-80 rounded-full object-cover object-center"
 						/>
 					) : (

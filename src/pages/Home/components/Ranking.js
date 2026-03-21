@@ -83,6 +83,7 @@ export default function Ranking() {
 								{u.dadosUsuario?.imagemUrl ? (
 									<img
 										src={`${process.env.REACT_APP_API_URL}${u.dadosUsuario.imagemUrl}`}
+										alt={u.dadosUsuario?.alcunha || u.nome}
 										className="w-[80px] h-[80px] lg:w-[100px] lg:h-[100px] rounded-full object-cover object-center mb-2"
 									/>
 								) : (
