@@ -46,10 +46,11 @@ export default function Formulario() {
 
 		try {
 			const autorId = selecionado === 'outro' ? null : selecionado
+			console.log('autorId a enviar:', autorId)
 
 			const res = await apiFetch("/liadetos", {
 				method: "POST",
-				body: JSON.stringify({ nome: aldrabice, descricao, autorId })
+				body: JSON.stringify({ nome: aldrabice, descricao, autorId: autorId })
 			})
 
 			const data = await res.json()
