@@ -46,7 +46,7 @@ export default function Liadetos() {
 		const matchPesquisa = l.nome.toLowerCase().includes(pesquisa.toLowerCase())
 		const matchIndividuo = 
     		filtroIndividuo === "Todos" || 
-    		(filtroIndividuo === "Outros" ? l.autorId === 7 : l.autorId === filtroIndividuo)
+    		(filtroIndividuo === "Outros" ? l.autorId === 9 : l.autorId === filtroIndividuo)
 		return matchPesquisa && matchIndividuo
 	})
 
