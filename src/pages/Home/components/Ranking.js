@@ -29,6 +29,14 @@ export default function Ranking() {
 
 				setRanking(ordenado)
 				setOutrosCount(Array.isArray(liadetos) ? liadetos.filter((l) => l.autorId === null).length : 0)
+
+				console.log(
+					data.map(u => ({
+						nome: u.nome,
+						isOther: u.dadosUsuario?.isOther,
+						aldrabicesDitas: u.dadosUsuario?.aldrabicesDitas
+					}))
+				)
 			} catch {
 				console.error("Erro ao carregar ranking.")
 			} finally {
