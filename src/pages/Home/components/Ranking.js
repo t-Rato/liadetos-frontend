@@ -56,9 +56,9 @@ export default function Ranking() {
 	const terceiro = ranking[2]
 
 	const podioVisual = [
-		segundo ? { ...segundo, posicao: "2º", altura: "h-[175px]", gradiente: "bg-gradient-to-t from-gray-200 to-gray-400", cor: "text-gray-700" } : null,
-		primeiro ? { ...primeiro, posicao: "1º", altura: "h-[250px]", gradiente: "bg-gradient-to-t from-yellow-200 to-yellow-400", cor: "text-yellow-700" } : null,
-		terceiro ? { ...terceiro, posicao: "3º", altura: "h-[125px]", gradiente: "bg-gradient-to-t from-amber-300 to-amber-500", cor: "text-amber-700" } : null,
+		segundo ? { ...segundo, posicao: "2º", altura: "h-[175px]", largura: "lg:w-[200px]", gradiente: "bg-gradient-to-t from-gray-200 to-gray-400", cor: "text-gray-700" } : null,
+		primeiro ? { ...primeiro, posicao: "1º", altura: "h-[250px]", largura: "lg:w-[240px]", gradiente: "bg-gradient-to-t from-yellow-200 to-yellow-400", cor: "text-yellow-700" } : null,
+		terceiro ? { ...terceiro, posicao: "3º", altura: "h-[125px]", largura: "lg:w-[200px]", gradiente: "bg-gradient-to-t from-amber-300 to-amber-500", cor: "text-amber-700" } : null,
 	].filter(Boolean)
 
 	return (
@@ -108,7 +108,7 @@ export default function Ranking() {
 								) : (
 									<div className="w-[80px] h-[80px] lg:w-[100px] lg:h-[100px] rounded-full bg-black mb-2" />
 								)}
-								<div className={`${u.gradiente} w-full lg:w-[240px] ${u.altura} flex flex-col text-center justify-start shadow-lg pt-4`}>
+								<div className={`${u.gradiente} w-full ${u.largura} ${u.altura} flex flex-col text-center justify-start shadow-lg pt-4`}>
 									<p className={`${u.cor} text-xl lg:text-2xl font-bold`}>{u.posicao}</p>
 									<p className={`${u.cor} text-sm lg:text-xl font-semibold break-words px-2`}>
 										{u.dadosUsuario?.alcunha || u.nome}

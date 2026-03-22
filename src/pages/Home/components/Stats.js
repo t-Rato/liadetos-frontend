@@ -57,8 +57,8 @@ export default function Stats() {
 				<p className="text-2xl lg:text-4xl font-semibold">Stats Individuais</p>
 			</div>
 
-			<div className="flex flex-col lg:grid lg:grid-cols-4 gap-4 lg:gap-10">
-				<div className="bg-stone-50 lg:col-span-1 rounded-3xl p-5 lg:p-7 shadow-lg flex flex-col items-center gap-2">
+			<div className="flex flex-col xl:grid xl:grid-cols-4 gap-4 xl:gap-10">
+				<div className="bg-stone-50 xl:col-span-1 rounded-3xl p-5 lg:p-7 shadow-lg flex flex-col items-center gap-2">
 					{usuario?.dadosUsuario?.imagemUrl ? (
 						<img
 							src={`${process.env.REACT_APP_API_URL}${usuario.dadosUsuario.imagemUrl}`}
