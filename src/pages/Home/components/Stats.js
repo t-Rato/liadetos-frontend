@@ -7,8 +7,8 @@ export default function Stats() {
 	const [ultimaAldrabice, setUltimaAldrabice] = useState(null)
 	const [loading, setLoading] = useState(true)
 
-	const statsCard = "col-span-1 flex flex-col justify-start items-center"
-	const titleStatsCard = "text-sm lg:text-3xl font-semibold text-black text-center h-10 lg:h-auto flex items-center justify-center"
+	const statsCard = "col-span-1 flex flex-col justify-start lg:justify-between items-center lg:h-full"
+	const titleStatsCard = "text-sm lg:text-3xl font-semibold text-black text-center lg:h-20 flex items-center justify-center"
 	const statsStatsCard = "text-[60px] lg:text-[180px] text-black leading-none"
 
 	useEffect(() => {
@@ -66,7 +66,7 @@ export default function Stats() {
 							className="h-40 w-40 lg:h-80 lg:w-80 rounded-full object-cover object-center"
 						/>
 					) : (
-						<div className="h-40 w-40 lg:h-80 lg:w-80 bg-black rounded-full" />
+						<div className="h-40 w-40 lg:h-60 lg:w-60 xl:h-80 xl:w-80 bg-black rounded-full" />
 					)}
 					<p className="text-black font-bold text-xl lg:text-2xl">
 						{loading ? "..." : usuario?.dadosUsuario?.alcunha || "—"}
@@ -77,7 +77,7 @@ export default function Stats() {
 				</div>
 
 				<div className="bg-stone-50 lg:col-span-3 flex flex-col gap-4 rounded-3xl p-5 lg:p-7 shadow-lg text-black justify-center">
-					<div className="grid grid-cols-3">
+					<div className="grid grid-cols-3 lg:h-64">
 						<div className={statsCard}>
 							<p className={titleStatsCard}>Aldrabices Ditas</p>
 							<p className={statsStatsCard}>

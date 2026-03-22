@@ -27,7 +27,7 @@ export default function Topbar() {
 		<div className={`fixed top-0 left-0 w-full z-50 py-5 transition-all duration-300 ${scrolled ? 'py-2 backdrop-blur-xl shadow-lg' : 'py-6 bg-transparent pt-20'}`}>
 
 			{/* Desktop */}
-			<div className="hidden lg:grid grid-cols-3 items-center px-10">
+			<div className="hidden lg:grid grid-cols-3 items-center gap-40 px-10">
 				<div className="flex flex-row justify-end gap-10">
 					<p
 						onClick={() => navigate('/criar')}

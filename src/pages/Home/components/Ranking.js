@@ -24,7 +24,7 @@ export default function Ranking() {
 					: []
 
 				setRanking(ordenado)
-				setOutrosCount(Array.isArray(liadetos) ? liadetos.filter((l) => l.autorId === null).length : 0)
+				setOutrosCount(Array.isArray(liadetos) ? liadetos.filter((l) => l.autorId === 7).length : 0)
 
 				console.log(
 					data.map(u => ({
