@@ -45,7 +45,15 @@ export default function Formulario() {
 		setLoading(true)
 
 		try {
-			const autorId = selecionado === 'outro' ? 9 : selecionado
+			const autorId
+
+			if (selecionado === 'outro') {
+				autorId = 9
+			} else if (selecionado === 'namelembro') {
+				autorId = 10
+			} else {
+				autorId = selecionado
+			}
 
 			const res = await apiFetch("/liadetos", {
 				method: "POST",
@@ -93,6 +101,13 @@ export default function Formulario() {
 					</div>
 				))}
 			</div>
+
+			<button
+				onClick={() => setSelecionado('namelembro')}
+				className={`px-6 lg:px-8 py-3 rounded-full font-semibold text-base lg:text-lg transition-all duration-300 border-2 ${selecionado === 'outro' ? 'bg-black text-white border-black' : 'bg-transparent text-black border-black hover:bg-black hover:text-white hover:translate-y-[-5px] hover:shadow-lg'}`}
+			>
+				Na me lembro
+			</button>
 
 			<button
 				onClick={() => setSelecionado('outro')}
