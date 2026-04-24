@@ -106,7 +106,7 @@ export default function Formulario() {
 				onClick={() => setSelecionado('namelembro')}
 				className={`mt-[-20px] px-6 lg:px-8 py-3 rounded-full font-semibold text-base lg:text-lg transition-all duration-300 border-2 ${selecionado === 'namelembro' ? 'bg-black text-white border-black' : 'bg-transparent text-black border-black hover:bg-black hover:text-white hover:translate-y-[-5px] hover:shadow-lg'}`}
 			>
-				Na me lembro
+				Nam lembro
 			</button>
 
 			<button
