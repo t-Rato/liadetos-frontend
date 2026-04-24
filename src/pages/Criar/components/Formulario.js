@@ -79,7 +79,7 @@ export default function Formulario() {
 		<div className="flex flex-col justify-center items-center mt-10 gap-10 lg:gap-16 px-4 lg:px-0">
 			<p className="text-2xl lg:text-[40px] text-black font-semibold text-center">QUEM É QUE FOI O ACÉFALO DESTA VEZ?</p>
 
-			<div className="flex flex-row flex-wrap justify-center gap-6 lg:gap-24 items-end w-full">
+			<div className="flex flex-row flex-wrap justify-center gap-4 lg:gap-24 items-end w-full">
 				{pessoas.map((pessoa) => (
 					<div
 						key={pessoa.id}
@@ -104,7 +104,7 @@ export default function Formulario() {
 
 			<button
 				onClick={() => setSelecionado('namelembro')}
-				className={`px-6 lg:px-8 py-3 rounded-full font-semibold text-base lg:text-lg transition-all duration-300 border-2 ${selecionado === 'outro' ? 'bg-black text-white border-black' : 'bg-transparent text-black border-black hover:bg-black hover:text-white hover:translate-y-[-5px] hover:shadow-lg'}`}
+				className={`mt-[-10px] px-6 lg:px-8 py-3 rounded-full font-semibold text-base lg:text-lg transition-all duration-300 border-2 ${selecionado === 'namelembro' ? 'bg-black text-white border-black' : 'bg-transparent text-black border-black hover:bg-black hover:text-white hover:translate-y-[-5px] hover:shadow-lg'}`}
 			>
 				Na me lembro
 			</button>
