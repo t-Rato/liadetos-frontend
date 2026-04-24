@@ -125,7 +125,7 @@ export default function Liadetos() {
 							<p className="font-semibold text-black text-sm lg:text-base truncate">{l.nome}</p>
 							<p className="text-gray-600 text-sm lg:text-base truncate">
 								{l.autor?.dadosUsuario?.isOther
-									? l.autorId === 10 ? "Na me lembro" : "Outro indivíduo"
+									? l.autorId === 10 ? "Nam lembro" : "Outro indivíduo"
 									: l.autor?.dadosUsuario?.alcunha || "Outro indivíduo"}
 							</p>
 							<p className="text-gray-600 text-sm lg:text-base truncate hidden lg:block">{l.criador?.dadosUsuario?.alcunha || l.criador?.nome}</p>
