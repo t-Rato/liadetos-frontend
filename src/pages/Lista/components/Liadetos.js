@@ -32,7 +32,7 @@ export default function Liadetos() {
 							.map((u) => ({ id: u.id, alcunha: u.dadosUsuario?.alcunha || u.nome }))
 						: []),
 					{ id: "Outros", alcunha: "Outro indivíduo" },
-					{ id: "Namelembro", alcunha: "Na me lembro" }
+					{ id: "Nam lembro", alcunha: "Nam lembro" }
 				])
 			} catch {
 				console.error("Erro ao carregar dados.")
@@ -48,7 +48,7 @@ export default function Liadetos() {
 		const matchIndividuo =
 			filtroIndividuo === "Todos" ||
 			(filtroIndividuo === "Outros" ? l.autorId === 9 :
-			filtroIndividuo === "Namelembro" ? l.autorId === 10 :
+			filtroIndividuo === "Nam lembro" ? l.autorId === 10 :
 			l.autorId === Number(filtroIndividuo))
 		return matchPesquisa && matchIndividuo
 	})
