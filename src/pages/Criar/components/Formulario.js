@@ -45,7 +45,7 @@ export default function Formulario() {
 		setLoading(true)
 
 		try {
-			const autorId
+			let autorId
 
 			if (selecionado === 'outro') {
 				autorId = 9
