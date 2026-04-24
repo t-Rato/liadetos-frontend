@@ -31,7 +31,8 @@ export default function Liadetos() {
 							.filter((u) => !u.dadosUsuario?.isOther)
 							.map((u) => ({ id: u.id, alcunha: u.dadosUsuario?.alcunha || u.nome }))
 						: []),
-					{ id: "Outros", alcunha: "Outros" }
+					{ id: "Outros", alcunha: "Outro indivíduo" },
+					{ id: "Namelembro", alcunha: "Na me lembro" }
 				])
 			} catch {
 				console.error("Erro ao carregar dados.")
@@ -46,7 +47,9 @@ export default function Liadetos() {
 		const matchPesquisa = l.nome.toLowerCase().includes(pesquisa.toLowerCase())
 		const matchIndividuo =
 			filtroIndividuo === "Todos" ||
-			(filtroIndividuo === "Outros" ? l.autorId === 9 : l.autorId === Number(filtroIndividuo))
+			(filtroIndividuo === "Outros" ? l.autorId === 9 :
+			filtroIndividuo === "Namelembro" ? l.autorId === 10 :
+			l.autorId === Number(filtroIndividuo))
 		return matchPesquisa && matchIndividuo
 	})
 
@@ -121,7 +124,9 @@ export default function Liadetos() {
 						>
 							<p className="font-semibold text-black text-sm lg:text-base truncate">{l.nome}</p>
 							<p className="text-gray-600 text-sm lg:text-base truncate">
-								{l.autor?.dadosUsuario?.isOther ? "Outro indivíduo" : l.autor?.dadosUsuario?.alcunha || "Outro indivíduo"}
+								{l.autor?.dadosUsuario?.isOther
+									? l.autorId === 10 ? "Na me lembro" : "Outro indivíduo"
+									: l.autor?.dadosUsuario?.alcunha || "Outro indivíduo"}
 							</p>
 							<p className="text-gray-600 text-sm lg:text-base truncate hidden lg:block">{l.criador?.dadosUsuario?.alcunha || l.criador?.nome}</p>
 							<p className="text-gray-400 text-xs lg:text-sm hidden lg:block">{new Date(l.criadoEm).toLocaleDateString('pt-PT')}</p>
